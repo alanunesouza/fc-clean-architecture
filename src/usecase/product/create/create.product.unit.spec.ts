@@ -1,7 +1,7 @@
 import { InputCreateProductDto } from "./create.product.dto";
 import CreateProductUseCase from "./create.product.usecase";
 
-const input: InputCreateProductDto = {
+let input: InputCreateProductDto = {
   name: "Refrigerante",
   price: 10.99
 }
@@ -16,6 +16,13 @@ const MockRepository = () => {
 };
 
 describe('Unit test create product use case', () => {
+  beforeEach(() => {
+    input = {
+      name: "Refrigerante",
+      price: 10.99
+    }
+  })
+
   it('should create a product', async () => {
     const productRepository = MockRepository();
     const productCreateUseCase = new CreateProductUseCase(productRepository);
