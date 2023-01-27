@@ -24,4 +24,13 @@ describe("Product factory unit test", () => {
       "Product type not supported"
     );
   });
+
+  it("should create a proct type a with createProductA", () => {
+    const product = ProductFactory.createProductA("Product A", 1);
+
+    expect(product.id).toBeDefined();
+    expect(product.name).toBe("Product A");
+    expect(product.price).toBe(1);
+    expect(product.constructor.name).toBe("Product");
+  });
 });
